@@ -1,5 +1,4 @@
 const { StatusCodes } = require('http-status-codes');
-const { Logger } = require('../config');
 const AppError = require('../utils/errors/app.error');
 
 class CrudRepository {
@@ -44,6 +43,12 @@ class CrudRepository {
                 id: id
             }
         })
+
+        // sequelize update query will return either [ 0 ] or [ 1 ] 
+        // which shows the no. of rows affected by this operation
+        if(response[0] == 0) {
+            throw new AppError("Not able to find the resource", StatusCodes.NOT_FOUND);
+        }
         return response;
     }
 }
