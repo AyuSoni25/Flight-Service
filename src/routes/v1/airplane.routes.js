@@ -10,4 +10,7 @@ airplaneRouter.post('/',
         AirplaneMiddlewares.validateCreateRequest,
         AirplaneController.createAirplane);
 
+// /api/v1/airplanes GET
+airplaneRouter.get('/', AirplaneController.getAirplanes);
+
 module.exports = airplaneRouter;
