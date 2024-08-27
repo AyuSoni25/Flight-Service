@@ -13,4 +13,7 @@ airplaneRouter.post('/',
 // /api/v1/airplanes GET
 airplaneRouter.get('/', AirplaneController.getAirplanes);
 
+// /api/v1/airplanes/:id GET
+airplaneRouter.get('/:id', AirplaneController.getAirplane);
+
 module.exports = airplaneRouter;
