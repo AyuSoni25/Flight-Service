@@ -1,13 +1,13 @@
 const express = require('express');
 
 const { AirplaneController } = require('../../controllers');
-const { AirplaneMiddlewares } = require('../../middlewares');
+const { AirplaneMiddleware } = require('../../middlewares');
 
 const airplaneRouter = express.Router();
 
 // /api/v1/airplanes POST
 airplaneRouter.post('/', 
-        AirplaneMiddlewares.validateCreateRequest,
+        AirplaneMiddleware.validateCreateRequest,
         AirplaneController.createAirplane);
 
 // /api/v1/airplanes GET
