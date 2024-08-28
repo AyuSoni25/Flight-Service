@@ -1,13 +1,13 @@
 const express = require('express');
 
 const { AirportController } = require('../../controllers');
-const { AirportMiddlewares } = require('../../middlewares');
+const { AirportMiddleware } = require('../../middlewares');
 
 const airportRouter = express.Router();
 
 // /api/v1/airports POST
 airportRouter.post('/', 
-        AirportMiddlewares.validateCreateRequest,
+        AirportMiddleware.validateCreateRequest,
         AirportController.createAirport);
 
 // /api/v1/airports GET
@@ -23,7 +23,7 @@ airportRouter.delete('/:id',
     AirportController.destroyAirport);
 
 // /api/v1/airports/:id PATCH
-airportRouter.update('/:id', 
+airportRouter.patch('/:id', 
     AirportController.updateAirport);
 
 module.exports = airportRouter;
